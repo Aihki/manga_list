@@ -11,11 +11,13 @@
 
 <body>
     <header>
-        <div class="container">
+        <div id="search"> 
+        </div>
+        <div data-test1 class="container">
             <div class="manga_cover">
                 <img src="./img/vol1.jpg" class="cover">
             </div>
-            <div class="content">
+            <div data-test2 class="content">
                 <h1>SpyxFamily</h1>
                 <p class="description">The master spy codenamed Twilight has spent his days on undercover
                     missions,
@@ -28,7 +30,7 @@
             </div>
         </div>
     </header>
-    <div class="manga-content">
+    <div data-test3 class="content container">
         <div class="side-content">
             <div class="info">
                 <div class="data-set">
@@ -70,11 +72,41 @@
 
 
         </div>
+        <div class="volumes">
+            <h2>Manga volumes</h2>
+            <div class="grid-volumes">
+                <div class="volume-card">
+                    <a  class="content"data-test4>
+                        <div class="volume"data-test5>Volume 1</div>
+                        <div class="owned"data-test5>owned</div>
+                        <div class="read"data-test5>Readed</div>
+                    </a>
+                </div>
+                <div class="volume-card">
+                       <a  class="content"data-test4>
+                        <div class="volume"data-test5>Volume 2</div>
+                        <div class="owned"data-test5>owned</div>
+                        <div class="read"data-test5>Readed</div>
+                    </a>
+                </div>
+                <div class="volume-card">
+                       <a  class="content"data-test4>
+                        <div class="volume"data-test5>Volume 3</div>
+                        <div class="owned"data-test5>owned</div>
+                        <div class="read"data-test5>Readed</div>
+                    </a>
+                </div>
+                <div class="volume-card">
+                       <a  class="content"data-test4>
+                        <div class="volume"data-test5>Volume 4</div>
+                        <div class="owned"data-test5>owned</div>
+                        <div class="read"data-test5> not Readed</div>
+                    </a>
+                </div>
 
-        <div class="center-content">
-
-
+            </div>
         </div>
+
     </div>
 
 
