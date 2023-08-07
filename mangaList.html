@@ -6,11 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="./css/manga_list.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/manga_list.js" defer></script>
     <title>Manga List</title>
 </head>
 
 <body>
-
+<input type="text" id="searchInput", placeholder="search manga series">
     <div class=" header">
         <div class="banner" style="background-image: url(./img/vol1.jpg);"></div>
         <div data-test1 class="container">
@@ -78,7 +79,7 @@
         </div>
         <div class="volumes">
             <h2>Manga volumes</h2>
-            <div class="liss">
+            <div class="list">
                 <div class="manga_list">
                     <div class="list_head row">
                         <div class="volume">Volume</div>
@@ -87,10 +88,6 @@
                     </div>
                     <div class="list_content">
                         <div class="manga row">
-                            <div class="volume">Volume 1</div>
-                            <div class="owned">yes</div>
-                            <div class="readed">yes</div>
-
                         </div>
 
                     </div>
