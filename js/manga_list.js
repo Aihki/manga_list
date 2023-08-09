@@ -35,6 +35,8 @@ function filterMangaData(searchTerm) {
     mangaListContainer.innerHTML = '';
 
     addMangaData(filterMangaData);
+
+
 }
 
 const mangaData = [ 
