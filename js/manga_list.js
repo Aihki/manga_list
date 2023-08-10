@@ -64,25 +64,38 @@ function populateInfoData(filteredData) {
         dataSet.querySelector('.value').textContent = `Genre: ${data.genre}, Score: ${data.score}, Format: ${data.format}, Status: ${data.status}, Release: ${data.releasing}, Volumes: ${data.Volumes}`;
         descWarped.textContent = data.description;
     });
+    
+    if (filteredInfoData.length > 0) {
+        infoDataContainer.style.display = 'block';
+        document.querySelector('[data-test2] h1').textContent = filteredData[0].series;
+        document.querySelector('[data-test2] .description').textContent = filteredData[0].description;
+    } else {
+        infoDataContainer.style.display = 'none';
+        document.querySelector('[data-test2] h1').textContent = '';
+        document.querySelector('[data-test2] .description').textContent = '';
+    }
+
+    
 }
 
 const searchInput = document.getElementById('searchInput');
 searchInput.addEventListener('input', function () {
     const searchTerm = this.value.toLowerCase();
-    const filteredInfoData = infoData.filter(data => data.series.toLowerCase().includes(searchTerm));
 
-    if (filteredInfoData.length > 0) {
-        populateInfoData(filteredInfoData);
-        document.querySelector('[data-test2] h1').textContent = filteredInfoData[0].series;
-        document.querySelector('[data-test2] .description').textContent = filteredInfoData[0].description;
-    } else {
+
+    if(searchTerm.length >= 3){
+        const filteredInfoData = infoData.filter(data => data.series.toLowerCase().includes(searchTerm));
+
+        populateInfoData(infoData);
+        filterMangaData(searchTerm);
+    } else{
         populateInfoData([]);
-        document.querySelector('[data-test2] h1').textContent = '';
-        document.querySelector('[data-test2] .description').textContent = '';
+        filterMangaData('');
     }
+    
 
-    filterMangaData(searchTerm);
+   
 });
 
 addMangaData(mangaData);
-populateInfoData(infoData);
+
