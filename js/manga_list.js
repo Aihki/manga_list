@@ -1,36 +1,6 @@
 import { mangaData, infoData } from "./manga_data.js";
 
-
-const mangaInfo = infoData[1]
-const content = document.querySelector('[data-test2]')
-content.querySelector('h1').textContent = mangaInfo.series;
-content.querySelector('.description').textContent = mangaInfo.description;
-
-
-const info = document.querySelector('[data-test3] .info');
-const dataSet = info.querySelectorAll('.data-set')
-dataSet[0].querySelector('.type').textContent = 'Format';
-dataSet[0].querySelector('.value').textContent = mangaInfo.format;
-
-dataSet[1].querySelector('.type').textContent = 'Status';
-dataSet[1].querySelector('.value').textContent = mangaInfo.status;
-
-dataSet[2].querySelector('.type').textContent = 'Releasing date';
-dataSet[2].querySelector('.value').textContent = mangaInfo.releasing;
-
-dataSet[3].querySelector('.type').textContent = 'Score';
-dataSet[3].querySelector('.value').textContent = mangaInfo.score;
-
-dataSet[4].querySelector('.type').textContent = 'Volumes';
-dataSet[4].querySelector('.value').textContent = mangaInfo.volumes;
-
-
-const phoneDesc = document.querySelector('.desc_warped');
-phoneDesc.textContent = mangaInfo.description;
-
-
-
-function addMangaData(mangaData){
+function addMangaData(mangaData) {
     const mangaListContainer = document.querySelector('.manga_list');
 
 
@@ -58,27 +28,48 @@ function addMangaData(mangaData){
     });
 };
 
-
 function filterMangaData(searchTerm) {
-    const filterMangaData = mangaData.filter(manga =>
+    const filteredMangaData = mangaData.filter(manga =>
         manga.series.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
     const mangaListContainer = document.querySelector('.manga_list');
     mangaListContainer.innerHTML = '';
 
-    addMangaData(filterMangaData);
-
-
+    addMangaData(filteredMangaData);
 }
 
+function populateInfoData(filteredData) {
+    const dataSetContainers = document.querySelectorAll('.data-set');
+    const descWarpedElements = document.querySelectorAll('.desc_warped');
+
+    filteredData.forEach((data, index) => {
+        const dataSet = dataSetContainers[index];
+        const descWarped = descWarpedElements[index];
+
+        dataSet.querySelector('.type').textContent = data.series;
+        dataSet.querySelector('.value').textContent = `Genre: ${data.genre}, Score: ${data.score}, Format: ${data.format}, Status: ${data.status}, Release: ${data.releasing}, Volumes: ${data.Volumes}`;
+        descWarped.textContent = data.description;
+    });
+}
 
 const searchInput = document.getElementById('searchInput');
-searchInput.addEventListener('input', function(){
-    filterMangaData(this.value);
+searchInput.addEventListener('input', function () {
+    const searchTerm = this.value.toLowerCase();
+    const filteredInfoData = infoData.filter(data => data.series.toLowerCase().includes(searchTerm));
+
+    if (filteredInfoData.length > 0) {
+        populateInfoData(filteredInfoData);
+        document.querySelector('[data-test2] h1').textContent = filteredInfoData[0].series;
+        document.querySelector('[data-test2] .description').textContent = filteredInfoData[0].description;
+    } else {
+        populateInfoData([]);
+        document.querySelector('[data-test2] h1').textContent = '';
+        document.querySelector('[data-test2] .description').textContent = '';
+    }
+
+    filterMangaData(searchTerm);
 });
 
-addMangaData(mangaData)
-
-
-
+addMangaData(mangaData);
+populateInfoData(infoData);
