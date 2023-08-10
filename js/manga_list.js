@@ -1,4 +1,5 @@
-import { mangaData } from "./manga_data.js"; 
+import { mangaData, infoData } from "./manga_data.js";
+
 
 function addMangaData(mangaData){
     const mangaListContainer = document.querySelector('.manga_list');
@@ -26,7 +27,8 @@ function addMangaData(mangaData){
         mangaListContainer.appendChild(row);
 
     });
-}
+};
+
 
 function filterMangaData(searchTerm) {
     const filterMangaData = mangaData.filter(manga =>
