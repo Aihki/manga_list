@@ -58,14 +58,16 @@ function populateInfoData(filteredData) {
 
     filteredData.forEach((data, index) => {
         const dataSet = dataSetContainers[index];
-        const descWarped = descWarpedElements[index];
+        let descWarped = descWarpedElements[index];
 
-        dataSet.querySelector('.type').textContent = data.series;
-        dataSet.querySelector('.value').textContent = `Genre: ${data.genre}, Score: ${data.score}, Format: ${data.format}, Status: ${data.status}, Release: ${data.releasing}, Volumes: ${data.Volumes}`;
-        descWarped.textContent = data.description;
-    });
-    
-    if (filteredInfoData.length > 0) {
+        if(dataSet && descWarped){
+            dataSet.querySelector('.value').textContent = `Genre: ${data.genre}, Score: ${data.score}, Format: ${data.format}, Status: ${data.status}, Release: ${data.releasing}, Volumes: ${data.Volumes}`;
+            descWarped.textContent = data.description;
+            
+            }
+        });
+        
+    if (filteredData.length > 0) {
         infoDataContainer.style.display = 'block';
         document.querySelector('[data-test2] h1').textContent = filteredData[0].series;
         document.querySelector('[data-test2] .description').textContent = filteredData[0].description;
