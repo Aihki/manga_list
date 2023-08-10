@@ -1,6 +1,35 @@
 import { mangaData, infoData } from "./manga_data.js";
 
 
+const mangaInfo = infoData[1]
+const content = document.querySelector('[data-test2]')
+content.querySelector('h1').textContent = mangaInfo.series;
+content.querySelector('.description').textContent = mangaInfo.description;
+
+
+const info = document.querySelector('[data-test3] .info');
+const dataSet = info.querySelectorAll('.data-set')
+dataSet[0].querySelector('.type').textContent = 'Format';
+dataSet[0].querySelector('.value').textContent = mangaInfo.format;
+
+dataSet[1].querySelector('.type').textContent = 'Status';
+dataSet[1].querySelector('.value').textContent = mangaInfo.status;
+
+dataSet[2].querySelector('.type').textContent = 'Releasing date';
+dataSet[2].querySelector('.value').textContent = mangaInfo.releasing;
+
+dataSet[3].querySelector('.type').textContent = 'Score';
+dataSet[3].querySelector('.value').textContent = mangaInfo.score;
+
+dataSet[4].querySelector('.type').textContent = 'Volumes';
+dataSet[4].querySelector('.value').textContent = mangaInfo.volumes;
+
+
+const phoneDesc = document.querySelector('.desc_warped');
+phoneDesc.textContent = mangaInfo.description;
+
+
+
 function addMangaData(mangaData){
     const mangaListContainer = document.querySelector('.manga_list');
 
@@ -42,12 +71,14 @@ function filterMangaData(searchTerm) {
 
 
 }
-addMangaData(mangaData)
+
 
 const searchInput = document.getElementById('searchInput');
 searchInput.addEventListener('input', function(){
     filterMangaData(this.value);
 });
+
+addMangaData(mangaData)
 
 
 
