@@ -1,5 +1,12 @@
 import { mangaData, infoData } from "./manga_data.js";
 
+
+const infoDataContainer = document.querySelector('.content[data-test3]')
+infoDataContainer.style.display = 'none';
+
+const mangaListContainer = document.querySelector('.manga_list')
+mangaListContainer.style.display = 'none';
+
 function addMangaData(mangaData) {
     const mangaListContainer = document.querySelector('.manga_list');
 
@@ -35,6 +42,12 @@ function filterMangaData(searchTerm) {
 
     const mangaListContainer = document.querySelector('.manga_list');
     mangaListContainer.innerHTML = '';
+
+    if(filteredMangaData.length > 0){
+        mangaListContainer.style.display = 'block';
+    } else{
+        mangaListContainer.style.display = 'none';
+    }
 
     addMangaData(filteredMangaData);
 }
