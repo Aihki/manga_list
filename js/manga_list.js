@@ -34,25 +34,21 @@ function addMangaData(mangaData) {
 
     });
 };
-
-function filterMangaData(searchTerm) {
-    const filteredMangaData = mangaData.filter(manga =>
-        manga.series.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-
+function filterMangaData(searchTerm, filteredMangaData) {
     const mangaListContainer = document.querySelector('.manga_list');
     mangaListContainer.innerHTML = '';
 
     addMangaData(filteredMangaData);
 
-    if(filteredMangaData.length > 0){
+    if (filteredMangaData.length > 0) {
         mangaListContainer.style.display = 'block';
-    } else{
+    } else {
         mangaListContainer.style.display = 'none';
     }
 }
 
 function populateInfoData(filteredData) {
+    const infoDataContainer = document.querySelector('.content[data-test3]');
     const dataSetContainers = document.querySelectorAll('.data-set');
     const descWarpedElements = document.querySelectorAll('.desc_warped');
 
@@ -61,11 +57,11 @@ function populateInfoData(filteredData) {
         const descWarped = descWarpedElements[index];
 
         dataSet.querySelector('.type').textContent = data.series;
-        dataSet.querySelector('.value').textContent = `Genre: ${data.genre}, Score: ${data.score}, Format: ${data.format}, Status: ${data.status}, Release: ${data.releasing}, Volumes: ${data.Volumes}`;
+        dataSet.querySelector('.value').textContent = `Genre: ${data.genre}, Score: ${data.score}, Format: ${data.format}, Status: ${data.status}, Release: ${data.releasing}, Volumes: ${data.volumes}`;
         descWarped.textContent = data.description;
     });
-    
-    if (filteredInfoData.length > 0) {
+
+    if (filteredData.length > 0) {
         infoDataContainer.style.display = 'block';
         document.querySelector('[data-test2] h1').textContent = filteredData[0].series;
         document.querySelector('[data-test2] .description').textContent = filteredData[0].description;
@@ -74,28 +70,28 @@ function populateInfoData(filteredData) {
         document.querySelector('[data-test2] h1').textContent = '';
         document.querySelector('[data-test2] .description').textContent = '';
     }
-
-    
 }
 
-const searchInput = document.getElementById('searchInput');
 searchInput.addEventListener('input', function () {
     const searchTerm = this.value.toLowerCase();
 
+    if (searchTerm.length >= 3) {
+        const filteredInfoData = infoData.filter(data =>
+            data.series.toLowerCase().includes(searchTerm)
+        );
 
-    if(searchTerm.length >= 3){
-        const filteredInfoData = infoData.filter(data => data.series.toLowerCase().includes(searchTerm));
+        const filteredMangaData = mangaData.filter(manga =>
+            manga.series.toLowerCase().includes(searchTerm)
+        );
 
-        populateInfoData(infoData);
-        filterMangaData(searchTerm);
-    } else{
+        populateInfoData(filteredInfoData);
+        filterMangaData(searchTerm, filteredMangaData);
+    } else {
         populateInfoData([]);
         filterMangaData('');
     }
-    
-
-   
 });
+
 
 addMangaData(mangaData);
 
