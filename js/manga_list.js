@@ -43,13 +43,13 @@ function filterMangaData(searchTerm) {
     const mangaListContainer = document.querySelector('.manga_list');
     mangaListContainer.innerHTML = '';
 
+    addMangaData(filteredMangaData);
+
     if(filteredMangaData.length > 0){
         mangaListContainer.style.display = 'block';
     } else{
         mangaListContainer.style.display = 'none';
     }
-
-    addMangaData(filteredMangaData);
 }
 
 function populateInfoData(filteredData) {
