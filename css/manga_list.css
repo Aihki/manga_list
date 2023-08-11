@@ -6,7 +6,7 @@ header {
     position: relative;
 }
 
-.bar{
+.bar {
     align-items: center;
     background: white;
     display: grid;
@@ -21,7 +21,7 @@ header {
 }
 
 
-.bar input{
+.bar input {
     background: transparent;
     font-size: 1rem;
     font-weight: 500;
@@ -42,7 +42,7 @@ body {
 
 
 .description {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     line-height: 1.2;
     margin: 0;
     max-width: 900px;
@@ -78,12 +78,12 @@ body {
 }
 
 .value {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     line-height: 1.1;
 }
 
 .type {
-    font-size: 1.1rem;
+    font-size: 1.0rem;
     font-weight: 400;
     padding-bottom: 5px;
 }

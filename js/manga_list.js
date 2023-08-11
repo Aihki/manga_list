@@ -1,49 +1,65 @@
-import { mangaData, infoData } from "./manga_data.js";
+import { mangaData } from './manga_data.js';
 
-function addMangaData(mangaData){
-    const mangaListContainer = document.querySelector('.manga_list');
+function populateMangaDetails(index) {
+    const mangaTitle = document.querySelector('.content h1');
+    const mangaDescription = document.querySelector('.content .description');
+    const mangaDescriptionMobile = document.querySelector('.warped .desc_warped')
+    const mangaType = document.querySelectorAll('.data-set .type');
+    const mangaValue = document.querySelectorAll('.data-set .value');
+    const mangaTags = document.querySelector('.tags');
+    const mangaVolumes = document.querySelector('.list_content .manga');
+
+    mangaTitle.textContent = mangaData[index].series;
+    mangaDescription.textContent = mangaData[index].description;
 
 
-    mangaData.forEach(manga => {
-        const row = document.createElement('div');
-        row.className = 'row';
+    mangaDescriptionMobile.textContent = mangaData[index].description;
 
-        const volumeCell = document.createElement('div');
-        volumeCell.className = 'volume';
-        volumeCell.textContent = manga.volume;
-        row.appendChild(volumeCell);
+    mangaType[0].textContent = 'Score:';
+    mangaValue[0].textContent = mangaData[index].score;
 
-        const ownedCell = document.createElement('div');
-        ownedCell.className = 'owned';
-        ownedCell.textContent = manga.owned ? 'Yes' : 'No'
-        row.appendChild(ownedCell);
+    mangaType[1].textContent = 'Format:';
+    mangaValue[1].textContent = mangaData[index].format;
 
-        const readedCell = document.createElement('div');
-        readedCell.className = 'readed';
-        readedCell.textContent = manga.readed ? 'Yes' : 'No'
-        row.appendChild(readedCell);
+    mangaType[2].textContent = 'Status:';
+    mangaValue[2].textContent = mangaData[index].status;
 
-        mangaListContainer.appendChild(row);
+    mangaType[3].textContent = 'Releasing:';
+    mangaValue[3].textContent = mangaData[index].releasing;
 
+
+    mangaData[index].genre.forEach(genre => {
+        const genreTag = document.createElement('div');
+        genreTag.classList.add('tag');
+        genreTag.textContent = genre;
+        mangaTags.appendChild(genreTag);
+    });
+
+    mangaData[index].volumesInfo.forEach(volumeInfo => {
+        const mangaVolume = document.createElement('div');
+        mangaVolume.classList.add('manga', 'row');
+        mangaVolume.innerHTML = `
+            <div class="volume">${volumeInfo.volume}</div>
+            <div class="owned">${volumeInfo.owned ? 'Yes' : 'No'}</div>
+            <div class="readed">${volumeInfo.readed ? 'Yes' : 'No'}</div>
+        `;
+        mangaVolumes.appendChild(mangaVolume);
     });
 }
 
-function filterMangaData(searchTerm) {
-    const filterMangaData = mangaData.filter(manga =>
-        manga.series.toLowerCase().includes(searchTerm.toLowerCase())
-    );
 
-    const mangaListContainer = document.querySelector('.manga_list');
-    mangaListContainer.innerHTML = '';
+document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('searchInput');
 
-    addMangaData(filterMangaData);
-}
+    searchInput.addEventListener('input', () => {
+        const searchInputValue = searchInput.value.trim();
+        const index = mangaData.findIndex(manga => manga.series.toLowerCase() === searchInputValue.toLowerCase());
 
-
-
-addMangaData(mangaData)
-
-const searchInput = document.getElementById('searchInput');
-searchInput.addEventListener('input', function(){
-    filterMangaData(this.value);
+        if (index !== -1) {
+            populateMangaDetails(index);
+        } else {
+            // Clear details or show a message if manga not found
+            // For example: populateMangaDetails(-1);
+        }
+    });
 });
