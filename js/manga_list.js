@@ -1,6 +1,7 @@
 import { mangaData } from './manga_data.js';
 
 function populateMangaDetails(index) {
+    console.log('populateMangaDetails called with index:', index);
     const mangaTitle = document.querySelector('.content h1');
     const mangaDescription = document.querySelector('.content .description');
     const mangaDescriptionMobile = document.querySelector('.warped .desc_warped')
@@ -9,9 +10,16 @@ function populateMangaDetails(index) {
     const mangaTags = document.querySelector('.tags');
     const mangaVolumes = document.querySelector('.list_content .manga');
 
+    // Clear previous data
+    mangaTitle.textContent = '';
+    mangaDescription.textContent = '';
+    mangaDescriptionMobile.textContent = '';
+    mangaTags.innerHTML = '';
+    mangaVolumes.innerHTML = '';
+
+    // Populate with new manga details
     mangaTitle.textContent = mangaData[index].series;
     mangaDescription.textContent = mangaData[index].description;
-
 
     mangaDescriptionMobile.textContent = mangaData[index].description;
 
@@ -26,7 +34,6 @@ function populateMangaDetails(index) {
 
     mangaType[3].textContent = 'Releasing:';
     mangaValue[3].textContent = mangaData[index].releasing;
-
 
     mangaData[index].genre.forEach(genre => {
         const genreTag = document.createElement('div');
@@ -48,18 +55,27 @@ function populateMangaDetails(index) {
 }
 
 
+
 document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('searchInput');
 
     searchInput.addEventListener('input', () => {
         const searchInputValue = searchInput.value.trim();
-        const index = mangaData.findIndex(manga => manga.series.toLowerCase() === searchInputValue.toLowerCase());
 
-        if (index !== -1) {
-            populateMangaDetails(index);
+        if (searchInputValue === '') {
+            // Clear details or hide them when search input is empty
+            // For example: clearDetails();
         } else {
-            // Clear details or show a message if manga not found
-            // For example: populateMangaDetails(-1);
+            const index = mangaData.findIndex(manga => manga.series.toLowerCase() === searchInputValue.toLowerCase());
+            if (index !== -1) {
+                populateMangaDetails(index);
+            } else {
+                // Clear details or show a message if manga not found
+                // For example: populateMangaDetails(-1);
+
+            }
         }
     });
 });
+
+

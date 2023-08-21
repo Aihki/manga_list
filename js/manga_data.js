@@ -41,6 +41,20 @@ const mangaData = [
         ],
         description: 'All-around average student Tsukune cant get accepted to any high school save one...but on his first day...'
     },
+    {
+        series: 'Oshi no Ko',
+        genre: ['Drama', 'Mystery', 'Psychological', 'Supernatural'],
+        score: '7.5/10',
+        format: 'Manga',
+        status: 'Hiatus',
+        releasing: '23.4.20',
+        volumesInfo: [
+            { volume: 'Volume 1', owned: true, readed: false },
+            { volume: 'Volume 2', owned: true, readed: false }
+
+        ],
+        description: 'Gorou is a gynecologist and idol fan who’s in shock after his favorite star, Ai, announces an impromptu hiatus....'
+    },
 
 ];
 
