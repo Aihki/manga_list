@@ -10,14 +10,14 @@ function populateMangaDetails(index) {
     const mangaTags = document.querySelector('.tags');
     const mangaVolumes = document.querySelector('.list_content .manga');
 
-    // Clear previous data
     mangaTitle.textContent = '';
     mangaDescription.textContent = '';
     mangaDescriptionMobile.textContent = '';
-    mangaTags.innerHTML = '';
-    mangaVolumes.innerHTML = '';
+    mangaTags.textContent = '';
+    mangaVolumes.textContent = '';
 
-    // Populate with new manga details
+
+
     mangaTitle.textContent = mangaData[index].series;
     mangaDescription.textContent = mangaData[index].description;
 
