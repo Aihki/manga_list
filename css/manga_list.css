@@ -27,7 +27,7 @@ header {
   position: relative;
   left: calc(50% - 170px);
   justify-items: center;
-  width: 320px;
+  width: 318px;
   border-radius: 10px;
   margin: 10px;
 }
