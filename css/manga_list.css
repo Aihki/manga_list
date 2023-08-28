@@ -1,223 +1,209 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .edit {
-    background-color: #2e3557;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    border-radius: 9px;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
+  background-color: #2e3557;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  border-radius: 9px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
 }
 
 header {
-    position: relative;
+  position: relative;
 }
 
 .bar {
-    align-items: center;
-    background: white;
-    display: grid;
-    position: relative;
-    left: calc(50% - 185px);
-    justify-items: center;
-    width: 350px;
-    border-radius: 10px;
-    margin: 10px;
-
-
+  align-items: center;
+  background: white;
+  display: grid;
+  position: relative;
+  left: calc(50% - 170px);
+  justify-items: center;
+  width: 320px;
+  border-radius: 10px;
+  margin: 10px;
 }
 
-
 .bar input {
-    background: transparent;
-    font-size: 1rem;
-    font-weight: 500;
-    width: 100%;
-    position: relative;
-    border-radius: 10px;
-    padding: 10px 10px;
+  background: transparent;
+  font-size: 1rem;
+  font-weight: 500;
+  width: 100%;
+  position: relative;
+  border-radius: 10px;
+  padding: 10px 10px;
 }
 
 body {
-    margin: 0;
-    background: #1e2530;
-    color: #f1f5f9;
-    font-size: 1.5rem;
-    height: 100%;
+  margin: 0;
+  background: #1e2530;
+  color: #f1f5f9;
+  font-size: 1.5rem;
+  height: 100%;
 }
-
-
 
 .description {
-    font-size: 1.5rem;
-    line-height: 1.2;
-    margin: 0;
-    max-width: 900px;
-    padding: 15px 0;
-    transition: .2s;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  margin: 0;
+  max-width: 900px;
+  padding: 15px 0;
+  transition: 0.2s;
 }
 
-
-
 .side-content {
-    margin-top: 0px;
+  margin-top: 0px;
 }
 
 .info {
-    background: #1b222d;
-    border-radius: 19px;
-    padding: 18px;
+  background: #1b222d;
+  border-radius: 19px;
+  padding: 18px;
 }
 
 .data-set {
-    padding-bottom: 0;
-    padding-right: 25px;
+  padding-bottom: 0;
+  padding-right: 25px;
 }
-
 
 .warped {
-    display: none;
+  display: none;
 }
 
-
 .data-set {
-    padding-bottom: 13px;
+  padding-bottom: 13px;
 }
 
 .value {
-    font-size: 0.95rem;
-    line-height: 1.1;
+  font-size: 0.95rem;
+  line-height: 1.1;
 }
 
 .type {
-    font-size: 1.0rem;
-    font-weight: 400;
-    padding-bottom: 5px;
+  font-size: 1rem;
+  font-weight: 400;
+  padding-bottom: 5px;
 }
 
 .cover {
-    background-color: white;
-    border-radius: 3px;
-    margin-top: 15px;
-    width: 100%;
+  background-color: white;
+  border-radius: 3px;
+  margin-top: 15px;
+  width: 100%;
 }
 
 .tags {
-    margin-top: 22px;
+  margin-top: 22px;
 }
 
 .tag {
-    background: #1b222d;
-    margin-bottom: 10px;
-    align-items: center;
-    display: flex;
-    font-size: 1.4rem;
-    padding: 7px 10px;
-    position: relative;
+  background: #1b222d;
+  margin-bottom: 10px;
+  align-items: center;
+  display: flex;
+  font-size: 1.4rem;
+  padding: 7px 10px;
+  position: relative;
 }
 
 .content[data-test2] {
-    display: inline-grid;
-    grid-template-rows: min-content min-content auto;
-    padding-top: 25px;
-
+  display: inline-grid;
+  grid-template-rows: min-content min-content auto;
+  padding-top: 25px;
 }
 
 .content[data-test3] {
-    display: grid;
-    grid-column-gap: 35px;
-    grid-template-columns: 215px auto;
-    margin-top: 25px;
-    position: relative;
+  display: grid;
+  grid-column-gap: 35px;
+  grid-template-columns: 215px auto;
+  margin-top: 25px;
+  position: relative;
 }
 
 .container[data-test1] {
-    display: grid;
-    grid-column-gap: 25px;
-    grid-template-columns: 215px auto;
+  display: grid;
+  grid-column-gap: 25px;
+  grid-template-columns: 215px auto;
 }
 
 .container {
-    margin: 0 auto;
-    min-width: 300px;
-    padding-left: 20px;
-    padding-right: 20px;
-    width: 100%;
+  margin: 0 auto;
+  min-width: 300px;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 100%;
 }
 
 .content[data-test4] {
-    font-size: 1rem;
-    grid-area: content;
-    overflow: hidden;
-    padding: 5px;
+  font-size: 1rem;
+  grid-area: content;
+  overflow: hidden;
+  padding: 5px;
 }
 
 .row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-@media(max-width: 1040px) {}
-
+@media (max-width: 1040px) {
+}
 
 @media (min-width: 1040px) {
-    .container {
-        max-width: 1130px;
-        padding-left: 40px;
-        padding-right: 40px;
-    }
-
+  .container {
+    max-width: 1130px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
 }
 
 @media (max-width: 760px) {
+  .banner {
+    background-position: 50% 20%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 210px;
+    margin-top: 0;
+  }
 
-    .banner {
-        background-position: 50% 20%;
-        background-size: cover;
-        background-repeat: no-repeat;
-        height: 210px;
-        margin-top: 0;
-    }
+  .cover {
+    display: none;
+  }
 
+  .description {
+    display: none;
+  }
 
-    .cover {
-        display: none;
-    }
+  .content[data-test3] {
+    display: block;
+  }
 
-    .description {
-        display: none;
-    }
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 
-    .content[data-test3] {
-        display: block;
-    }
+  .container[data-test1] {
+    grid-template-columns: 1fr;
+  }
 
-    .container {
-        padding-left: 20px;
-        padding-right: 20px;
-    }
+  .info {
+    display: flex;
+    margin-bottom: 25px;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
 
-    .container[data-test1] {
-        grid-template-columns: 1fr;
-    }
-
-    .info {
-        display: flex;
-        margin-bottom: 25px;
-        overflow-x: auto;
-        white-space: nowrap;
-    }
-
-    .warped {
-        display: block;
-    }
-
+  .warped {
+    display: block;
+  }
 }
